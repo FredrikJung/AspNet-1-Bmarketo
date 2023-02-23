@@ -1,0 +1,1548 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
+
+html, body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222529;
+}
+
+a {
+    color: #FA3150;
+    text-decoration: none;
+    transition: all 0.05s ease-in-out;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+.container {
+    max-width: 1200px;
+}
+
+.menu-badge {
+    position: absolute;
+    top: 30px;
+    background-color: #ff7373;
+    color: #ffffff;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem;
+}
+
+.title-1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.title-2 {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.title-3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-theme {
+    position: relative;
+    background-color: #FA3150 !important;
+    color: #ffffff !important;
+    padding: 15px 50px;
+}
+
+    .btn-theme:hover {
+        background-color: #222529 !important;
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+
+.header {
+    display: grid;
+    height: 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo menulinkicons";
+    padding: 10px 0;
+}
+
+    .header .logo {
+        grid-area: logo;
+        font-size: 35px;
+        font-weight: 700;
+        color: #222529;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .header .menu {
+        grid-area: menu;
+        display: none;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .header .menu .menu-link {
+            display: block;
+            margin: 15px;
+            color: #222529;
+            font-weight: 500;
+        }
+
+            .header .menu .menu-link:hover {
+                color: #FA3150;
+                text-decoration: none;
+            }
+
+        .header .menu .active {
+            color: #FA3150;
+            text-decoration: none;
+        }
+
+    .header .menulinkicons {
+        grid-area: menulinkicons;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+        .header .menulinkicons .menu-link {
+            color: #AEAEAE;
+            height: 36px;
+            width: 36px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.1s ease-in-out;
+        }
+
+            .header .menulinkicons .menu-link:hover {
+                color: #FA3150;
+                text-decoration: none;
+            }
+
+@media (min-width: 1200px) {
+    .header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "logo menu menulinkicons";
+    }
+
+        .header .menu {
+            font-size: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+}
+
+.showcase {
+    background: #f3f3f3;
+    background: linear-gradient(90deg, #f3f3f3 0%, #f5f5f5 100%);
+}
+
+    .showcase .container {
+        height: 647px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .showcase .container .content {
+            flex: 1;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+            .showcase .container .content img {
+                flex: 1;
+                width: auto;
+                height: 100%;
+            }
+
+.product-grid .title {
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.product-grid .categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    transition: all 0.1s ease-in-out;
+}
+
+    .product-grid .categories .category-link {
+        color: #222529;
+    }
+
+        .product-grid .categories .category-link:hover {
+            color: #FA3150;
+            text-decoration: none;
+        }
+
+    .product-grid .categories .slash {
+        font-size: 10px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.product-grid .card {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0s;
+}
+
+    .product-grid .card:hover {
+        transform: scale(0.98);
+    }
+
+    .product-grid .card .card-img-container {
+        display: grid;
+        position: relative;
+    }
+
+        .product-grid .card .card-img-container img {
+            width: 100%;
+            height: 270px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+    .product-grid .card .card-body {
+        text-align: left;
+    }
+
+        .product-grid .card .card-body .card-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .product-grid .card .card-body .price-container {
+            display: flex;
+        }
+
+            .product-grid .card .card-body .price-container .card-sale-price {
+                display: flex;
+                justify-content: flex-start;
+                text-decoration: line-through;
+                margin-right: 10px;
+            }
+
+            .product-grid .card .card-body .price-container .card-price {
+                display: flex;
+                justify-content: flex-start;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .product-grid .card .card-body .price-container .shopping-icon {
+                display: flex;
+                flex-grow: 1;
+                justify-content: flex-end;
+                text-align: right;
+                color: #222529;
+                display: none;
+            }
+
+    .product-grid .card:hover .shopping-icon {
+        display: block !important;
+    }
+
+.product-grid .extended {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .product-grid .extended .btn-load {
+        background-color: transparent;
+        color: #222529;
+        border: 1px solid black;
+        padding: 10px 40px;
+    }
+
+        .product-grid .extended .btn-load:hover {
+            background-color: #FA3150;
+            color: #ffffff;
+            border-color: #FA3150;
+            text-decoration: none;
+        }
+
+.showcase-discount {
+    background: #f3f3f3;
+    background: linear-gradient(90deg, #f3f3f3 0%, #f5f5f5 100%);
+    margin-top: 60px;
+}
+
+    .showcase-discount .card {
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        transition: transform 0s;
+    }
+
+        .showcase-discount .card:hover {
+            transform: scale(0.98);
+        }
+
+        .showcase-discount .card .card-img-container {
+            display: grid;
+            position: relative;
+        }
+
+            .showcase-discount .card .card-img-container img {
+                width: 100%;
+                height: 369px;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+
+        .showcase-discount .card .card-body {
+            text-align: left;
+        }
+
+            .showcase-discount .card .card-body .card-title {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .showcase-discount .card .card-body .price-container {
+                display: flex;
+                margin-top: 35px;
+            }
+
+                .showcase-discount .card .card-body .price-container .card-sale-price {
+                    display: flex;
+                    justify-content: flex-start;
+                    text-decoration: line-through;
+                    margin-right: 10px;
+                }
+
+                .showcase-discount .card .card-body .price-container .card-price {
+                    display: flex;
+                    justify-content: flex-start;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                .showcase-discount .card .card-body .price-container .shopping-icon {
+                    display: flex;
+                    flex-grow: 1;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    text-align: right;
+                    color: #bbbbbb;
+                }
+
+    .showcase-discount .discount-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #ffffff;
+        height: 498px;
+        border: none;
+        border-radius: 1%;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        transition: transform 0s;
+    }
+
+        .showcase-discount .discount-card:hover {
+            transform: scale(0.98);
+        }
+
+        .showcase-discount .discount-card .title-1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .showcase-discount .discount-card .title-2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .showcase-discount .discount-card .title-3 {
+            color: #FA3150;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .showcase-discount .discount-card .ptext {
+            margin-bottom: 30px;
+        }
+
+        .showcase-discount .discount-card .ltext {
+            color: #222529;
+        }
+
+            .showcase-discount .discount-card .ltext:hover {
+                color: #FA3150;
+                text-decoration: none;
+            }
+
+.carousel-section {
+    max-width: 1770px;
+}
+
+    .carousel-section .title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .carousel-section .card {
+        border: none;
+        transition: transform 0s;
+    }
+
+        .carousel-section .card:hover {
+            transform: scale(0.98);
+        }
+
+        .carousel-section .card .card-img-container {
+            display: grid;
+            position: relative;
+        }
+
+            .carousel-section .card .card-img-container img {
+                width: 100%;
+                height: 270px;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+
+        .carousel-section .card .card-body {
+            text-align: left;
+        }
+
+            .carousel-section .card .card-body .card-title {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .carousel-section .card .card-body .price-container {
+                display: flex;
+            }
+
+                .carousel-section .card .card-body .price-container .card-sale-price {
+                    display: flex;
+                    justify-content: flex-start;
+                    text-decoration: line-through;
+                    margin-right: 10px;
+                }
+
+                .carousel-section .card .card-body .price-container .card-price {
+                    display: flex;
+                    justify-content: flex-start;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                .carousel-section .card .card-body .price-container .shopping-icon {
+                    display: flex;
+                    flex-grow: 1;
+                    justify-content: flex-end;
+                    text-align: right;
+                    color: #222529;
+                    display: none;
+                }
+
+        .carousel-section .card:hover .shopping-icon {
+            display: block !important;
+        }
+
+    .carousel-section .arrows {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+        .carousel-section .arrows .left-arrow {
+            margin-right: 4px;
+        }
+
+            .carousel-section .arrows .left-arrow:hover {
+                color: #FA3150;
+            }
+
+        .carousel-section .arrows .right-arrow {
+            margin-left: 4px;
+        }
+
+            .carousel-section .arrows .right-arrow:hover {
+                color: #FA3150;
+            }
+
+.top-product .card {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    transition: transform 0s;
+}
+
+    .top-product .card:hover {
+        transform: scale(0.98);
+    }
+
+    .top-product .card .card-img-container {
+        display: grid;
+        position: relative;
+    }
+
+        .top-product .card .card-img-container img {
+            width: 100%;
+            height: 369px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+    .top-product .card .card-body {
+        text-align: left;
+    }
+
+        .top-product .card .card-body .card-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .top-product .card .card-body .card-description {
+            font-size: 16px;
+        }
+
+        .top-product .card .card-body .card-info {
+            display: flex;
+            justify-content: flex-start;
+            font-size: 12px;
+            font-weight: 400;
+            color: #bbbbbb;
+        }
+
+            .top-product .card .card-body .card-info .card-post {
+                margin-right: 5px;
+            }
+
+            .top-product .card .card-body .card-info .card-comment {
+                margin-left: 5px;
+            }
+
+            .top-product .card .card-body .card-info .shopping-icon {
+                text-align: right;
+                color: #bbbbbb;
+            }
+
+.subscribe {
+    background: rgba(112, 112, 112, 0.4);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+    .subscribe .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        text-align: center;
+    }
+
+        .subscribe .container .form-control {
+            margin-left: 150px;
+            height: 50px;
+            padding-left: 50px;
+            border: 1px solid #bbbbbb;
+            border-radius: 52px;
+        }
+
+            .subscribe .container .form-control:focus {
+                box-shadow: none;
+            }
+
+        .subscribe .container .btn {
+            margin-left: -50px;
+            margin-right: 200px;
+            min-height: 50px;
+            min-width: 300px;
+            border-radius: 52px;
+            background: #FA3150;
+            color: #ffffff;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+.footer {
+    background: #222529;
+    color: #bbbbbb;
+    height: 98px;
+}
+
+    .footer .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.product-showcase {
+    display: flex;
+    max-width: 1920px;
+    min-height: 150px;
+    position: relative;
+    text-align: center;
+    padding: 0;
+}
+
+    .product-showcase img {
+        max-width: 100%;
+        max-height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .product-showcase .title-1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .product-showcase .title-1 h1 {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+    .product-showcase .title-2 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 50px;
+    }
+
+        .product-showcase .title-2 h2 {
+            font-size: 18px;
+            font-weight: 200;
+        }
+
+.product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "images product-info" "buttons buttons" "description-heading description-heading" "description-box description-box" "line line";
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+    .product-details .images {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-details .images .image-1 {
+            margin-bottom: 10px;
+        }
+
+            .product-details .images .image-1 img {
+                height: 410px;
+                width: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+
+        .product-details .images .image-carousel .carousel-image {
+            height: 113px;
+            width: auto;
+        }
+
+        .product-details .images .image-carousel .carousel-control-prev {
+            color: black;
+            justify-content: flex-start;
+            margin-left: 2px;
+        }
+
+        .product-details .images .image-carousel .carousel-control-next {
+            color: black;
+            justify-content: flex-end;
+            margin-right: 2px;
+        }
+
+    .product-details .product-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 40px;
+    }
+
+        .product-details .product-info .title h2 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .product-details .product-info .review-box {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .product-details .product-info .review-box .star p {
+                font-size: 14;
+                font-weight: 700;
+                color: #FFB71B;
+            }
+
+            .product-details .product-info .review-box .review {
+                margin-left: 2px;
+            }
+
+        .product-details .product-info .product-price {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .product-details .product-info .add-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+        }
+
+            .product-details .product-info .add-box input[type=number] {
+                text-align: center;
+                width: 50px;
+                height: 44px;
+                background-color: transparent;
+                border: 0.5px solid #bbbbbb;
+            }
+
+            .product-details .product-info .add-box input::-webkit-outer-spin-button,
+            .product-details .product-info .add-box input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+
+            .product-details .product-info .add-box #decrement {
+                width: 50px;
+                height: 44px;
+                background-color: transparent;
+                border: 0.5px solid #bbbbbb;
+            }
+
+            .product-details .product-info .add-box #increment {
+                width: 50px;
+                height: 44px;
+                background-color: transparent;
+                border: 0.5px solid #bbbbbb;
+            }
+
+            .product-details .product-info .add-box #add-to-cart {
+                height: 44px;
+                width: 185px;
+                margin-left: 20px;
+                border: none;
+                background-color: #FA3150;
+                color: #ffffff;
+            }
+
+            .product-details .product-info .add-box .fa-rectangle-vertical {
+                margin-left: 10px;
+                font-size: small;
+            }
+
+        .product-details .product-info .color-sku-box {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+
+            .product-details .product-info .color-sku-box #red {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border: none;
+                background-color: #FA3150;
+            }
+
+            .product-details .product-info .color-sku-box #yellow {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border: none;
+                background-color: #FFB71B;
+                margin-left: 7px;
+            }
+
+            .product-details .product-info .color-sku-box #gray {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border: none;
+                background-color: #92B8B9;
+                margin-left: 7px;
+            }
+
+            .product-details .product-info .color-sku-box p {
+                margin-left: 70px;
+            }
+
+        .product-details .product-info .add-to-wishlist {
+            margin-top: 15px;
+        }
+
+            .product-details .product-info .add-to-wishlist #wishlist-btn {
+                background-color: #ffffff;
+                height: 44px;
+                width: 185px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+
+        .product-details .product-info .category {
+            margin-top: 25px;
+        }
+
+    .product-details .buttons {
+        grid-area: buttons;
+        margin-top: 50px;
+    }
+
+        .product-details .buttons #description {
+            background-color: #FA3150;
+            color: #ffffff;
+            text-decoration: none;
+            border: none;
+            width: 294px;
+            height: 50px;
+        }
+
+            .product-details .buttons #description:active {
+                background-color: #FA3150;
+                color: #ffffff;
+                text-decoration: none;
+                border: none;
+            }
+
+        .product-details .buttons #additional {
+            width: 294px;
+            height: 50px;
+            background: #ffffff;
+            border: 1px solid #bbbbbb;
+        }
+
+            .product-details .buttons #additional:active {
+                background-color: #FA3150;
+                color: #ffffff;
+                text-decoration: none;
+                border: none;
+            }
+
+        .product-details .buttons #review {
+            width: 294px;
+            height: 50px;
+            background: #ffffff;
+            border: 1px solid #bbbbbb;
+        }
+
+            .product-details .buttons #review:active {
+                background-color: #FA3150;
+                color: #ffffff;
+                text-decoration: none;
+                border: none;
+            }
+
+        .product-details .buttons #shipping {
+            width: 294px;
+            height: 50px;
+            background: #ffffff;
+            border: 1px solid #bbbbbb;
+        }
+
+            .product-details .buttons #shipping:active {
+                background-color: #FA3150;
+                color: #ffffff;
+                text-decoration: none;
+                border: none;
+            }
+
+        .product-details .buttons:active {
+            background-color: #FA3150;
+            -moz-columns: #ffffff;
+            columns: #ffffff;
+        }
+
+    .product-details .description-heading {
+        grid-area: description-heading;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+        .product-details .description-heading h2 {
+            font-size: 24px;
+        }
+
+    .product-details .description-box {
+        grid-area: description-box;
+        display: flex;
+    }
+
+        .product-details .description-box .description-text {
+            word-spacing: 8px;
+        }
+
+        .product-details .description-box .description-image {
+            position: relative;
+            margin-left: 25px;
+        }
+
+            .product-details .description-box .description-image img {
+                height: 356px;
+                width: auto;
+            }
+
+            .product-details .description-box .description-image .text-box {
+                position: absolute;
+                top: -6px;
+                right: -25px;
+                width: 0px;
+                height: 0px;
+                border-style: inset;
+                border-width: 0 39px 39px 39px;
+                border-color: transparent transparent #222529 transparent;
+                transform: translate(50%, -50%);
+                float: left;
+                transform: rotateY(0deg) rotate(45deg);
+            }
+
+                .product-details .description-box .description-image .text-box .image-text {
+                    font-size: 14px;
+                    color: #ffffff;
+                    position: relative;
+                    text-align: center;
+                    margin: 0px;
+                    top: 18px;
+                    right: 15px;
+                }
+
+    .product-details .line {
+        grid-area: line;
+        width: 100%;
+        color: #bbbbbb;
+        margin-top: 30px;
+    }
+
+.related-products h2 {
+    font-size: 24px;
+}
+
+.related-products .card {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    transition: transform 0s;
+}
+
+    .related-products .card:hover {
+        transform: scale(0.98);
+    }
+
+    .related-products .card .card-img-container {
+        display: grid;
+        position: relative;
+    }
+
+        .related-products .card .card-img-container img {
+            width: 100%;
+            height: 270px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+    .related-products .card .card-body {
+        text-align: left;
+    }
+
+        .related-products .card .card-body .card-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .related-products .card .card-body .price-container {
+            display: flex;
+        }
+
+            .related-products .card .card-body .price-container .card-sale-price {
+                display: flex;
+                justify-content: flex-start;
+                text-decoration: line-through;
+                margin-right: 10px;
+            }
+
+            .related-products .card .card-body .price-container .card-price {
+                display: flex;
+                justify-content: flex-start;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .related-products .card .card-body .price-container .shopping-icon {
+                display: flex;
+                flex-grow: 1;
+                justify-content: flex-end;
+                text-align: right;
+                color: #222529;
+                display: none;
+            }
+
+    .related-products .card:hover .shopping-icon {
+        display: block !important;
+    }
+
+.product-carousel {
+    background: #f3f3f3;
+    background: linear-gradient(90deg, #f3f3f3 0%, #f5f5f5 100%);
+}
+
+    .product-carousel .container .carousel-inner .carousel-image {
+        height: 122px;
+        width: 200px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+
+    .product-carousel .container .carousel-inner .carousel-control-prev {
+        color: black;
+        justify-content: flex-start;
+        margin-left: 2px;
+    }
+
+    .product-carousel .container .carousel-inner .carousel-control-next {
+        color: black;
+        justify-content: flex-end;
+        margin-right: 2px;
+    }
+
+.contact-showcase {
+    display: flex;
+    max-width: 1920px;
+    min-height: 150px;
+    position: relative;
+    text-align: center;
+    padding: 0;
+}
+
+    .contact-showcase img {
+        max-width: 100%;
+        max-height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .contact-showcase .title-1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .contact-showcase .title-1 h1 {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+    .contact-showcase .title-2 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 50px;
+    }
+
+        .contact-showcase .title-2 h2 {
+            font-size: 18px;
+            font-weight: 200;
+        }
+
+.contact-form .container {
+    max-width: 1138px;
+    box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+    margin-top: 80px;
+    margin-bottom: 160px;
+}
+
+    .contact-form .container .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "write-something empty" "name email" "phone company" "something-write something-write" "checkbox checkbox" "contact-submit-box contact-submit-box";
+    }
+
+        .contact-form .container .contact-form .write-something {
+            grid-area: write-something;
+            margin-top: 30px;
+        }
+
+            .contact-form .container .contact-form .write-something hr {
+                margin-top: 1px;
+                margin-bottom: 25px;
+                width: 12.5%;
+            }
+
+        .contact-form .container .contact-form .name {
+            grid-area: name;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-form .container .contact-form .name input {
+                min-height: 50px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .contact-form .container .contact-form .email {
+            grid-area: email;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-form .container .contact-form .email input {
+                min-height: 50px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .contact-form .container .contact-form .phone {
+            grid-area: phone;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-form .container .contact-form .phone input {
+                min-height: 50px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .contact-form .container .contact-form .company {
+            grid-area: company;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-form .container .contact-form .company input {
+                min-height: 50px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .contact-form .container .contact-form .something-write {
+            grid-area: something-write;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-form .container .contact-form .something-write input {
+                min-height: 105px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .contact-form .container .contact-form .checkbox {
+            grid-area: checkbox;
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+            .contact-form .container .contact-form .checkbox input {
+                margin-right: 10px;
+            }
+
+        .contact-form .container .contact-form .contact-submit-box {
+            grid-area: contact-submit-box;
+            margin-bottom: 40px;
+        }
+
+            .contact-form .container .contact-form .contact-submit-box .contact-submit-btn {
+                border: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                width: 142px;
+                height: 50px;
+            }
+
+.map {
+    display: flex;
+    max-width: 1920px;
+    min-height: 300px;
+    padding: 0;
+}
+
+    .map iframe {
+        max-width: 100%;
+        max-height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+.login-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1088px;
+}
+
+    .login-form-section .container {
+        max-width: 1138px;
+        max-height: 478px;
+        box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+        margin-bottom: 150px;
+    }
+
+        .login-form-section .container .login-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "login-to-account empty" "email email" "password password" "checkbox checkbox" "login-submit-box login-submit-box";
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+            .login-form-section .container .login-form .login-to-account {
+                grid-area: login-to-account;
+                margin-top: 30px;
+            }
+
+                .login-form-section .container .login-form .login-to-account hr {
+                    margin-top: 2px;
+                    margin-bottom: 50px;
+                    width: 12.5%;
+                }
+
+            .login-form-section .container .login-form .email {
+                grid-area: email;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .login-form-section .container .login-form .email .email-label {
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                    .login-form-section .container .login-form .email .email-label .register-link {
+                        margin-left: 20px;
+                        font-size: 14px;
+                    }
+
+                .login-form-section .container .login-form .email input {
+                    min-height: 50px;
+                    margin-bottom: 20px;
+                    border: none;
+                    background-color: #FAFAFA;
+                }
+
+            .login-form-section .container .login-form .password {
+                grid-area: password;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .login-form-section .container .login-form .password .password-label {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                    .login-form-section .container .login-form .password .password-label .forgot-password-link {
+                        font-size: 14px;
+                    }
+
+                .login-form-section .container .login-form .password input {
+                    min-height: 50px;
+                    margin-bottom: 20px;
+                    border: none;
+                    background-color: #FAFAFA;
+                }
+
+            .login-form-section .container .login-form .checkbox {
+                grid-area: checkbox;
+                display: flex;
+                flex-direction: row;
+                font-size: 14px;
+                margin-bottom: 40px;
+            }
+
+                .login-form-section .container .login-form .checkbox input {
+                    margin-right: 10px;
+                }
+
+            .login-form-section .container .login-form .login-submit-box {
+                grid-area: login-submit-box;
+                margin-bottom: 40px;
+            }
+
+                .login-form-section .container .login-form .login-submit-box .login-submit-btn {
+                    border: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    width: 142px;
+                    height: 50px;
+                }
+
+.register-form-section .container {
+    max-width: 1138px;
+    min-height: 1110px;
+    box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+    margin-top: 80px;
+    margin-bottom: 160px;
+}
+
+    .register-form-section .container .register-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "register-account empty" "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirm-password confirm-password" "upload-image upload-image" "checkbox checkbox" "register-submit-box register-submit-box";
+    }
+
+        .register-form-section .container .register-form .register-account {
+            grid-area: register-account;
+            margin-top: 30px;
+        }
+
+            .register-form-section .container .register-form .register-account hr {
+                margin-top: 1px;
+                margin-bottom: 25px;
+                width: 12.5%;
+            }
+
+        .register-form-section .container .register-form .firstname {
+            grid-area: firstname;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .firstname input {
+                min-height: 50px;
+                margin-right: 20px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .lastname {
+            grid-area: lastname;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .lastname input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .streetname {
+            grid-area: streetname;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .streetname input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .postalcode {
+            grid-area: postalcode;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .postalcode input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .city {
+            grid-area: city;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .city input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .mobile {
+            grid-area: mobile;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .mobile input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .company {
+            grid-area: company;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .company input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .email {
+            grid-area: email;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .email input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .password {
+            grid-area: password;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .password input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .confirm-password {
+            grid-area: confirm-password;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .confirm-password input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .upload-image {
+            grid-area: upload-image;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .register-form-section .container .register-form .upload-image input {
+                min-height: 50px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                border: none;
+                background-color: #FAFAFA;
+            }
+
+        .register-form-section .container .register-form .checkbox {
+            grid-area: checkbox;
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+            .register-form-section .container .register-form .checkbox input {
+                margin-right: 10px;
+            }
+
+        .register-form-section .container .register-form .register-submit-box {
+            grid-area: register-submit-box;
+        }
+
+            .register-form-section .container .register-form .register-submit-box .register-submit-btn {
+                border: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                width: 142px;
+                height: 50px;
+            }
