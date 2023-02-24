@@ -9,23 +9,25 @@ namespace Bmarketo.Services
     {
         private readonly UserManager<IdentityUser> _Usermanager;
         private readonly IdentityContext _identityContext;
+        private readonly IWebHostEnvironment _env;
 
-        public UserService(UserManager<IdentityUser> usermanager, IdentityContext identityContext)
+        public UserService(UserManager<IdentityUser> usermanager, IdentityContext identityContext, IWebHostEnvironment env)
         {
             _Usermanager = usermanager;
             _identityContext = identityContext;
+            _env = env;
         }
 
-        public async Task<UserAccount> GetUserAccountAsync(string id)
+        public async Task<UserProfileModel> GetUserAccountAsync(string username)
         {
-            var identityUser = await _Usermanager.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var identityUser = await _Usermanager.Users.FirstOrDefaultAsync(x => x.UserName == username);
             if (identityUser != null)
             {
                 var identityProfile = await _identityContext.UserProfiles.FirstOrDefaultAsync(x => x.UserId == identityUser.Id);
 
                 if (identityProfile != null)
                 {
-                    return new UserAccount
+                    var userProfile = new UserProfileModel
                     {
                         Id = identityUser.Id,
                         FirstName = identityProfile.FirstName,
@@ -35,11 +37,26 @@ namespace Bmarketo.Services
                         StreetName = identityProfile.StreetName,
                         PostalCode = identityProfile.PostalCode,
                         City = identityProfile.City,
-                        Company = identityProfile.Company
+                        Company = identityProfile.Company,
+                        ImageName = identityProfile.ImageName
+                        
                     };
+
+                    return userProfile;
                 }
             }
             return null!;
+        }
+        public async Task<string> UploadProfileImageAsync(IFormFile profileImage)
+        {
+            var profilePath = $"{_env.WebRootPath}/images/profiles";
+            var imageName = $"profile_{Guid.NewGuid()}{Path.GetExtension(profileImage.FileName)}";
+            string filePath = $"{profilePath}/{imageName}";
+
+            using var fs = new FileStream(filePath, FileMode.Create);
+            await profileImage.CopyToAsync(fs);
+
+            return imageName;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Bmarketo.Models.Forms
 {
-    public class ContactForm
+    public class ContactFormModel
     {
         [Required]
         [Display(Name = "Your Name")]

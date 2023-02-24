@@ -1,4 +1,4 @@
-﻿using Bmarketo.Models.Identity;
+﻿using Bmarketo.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +10,6 @@ namespace Bmarketo.Contexts
         {
         }
 
-        public DbSet<IdentityUserProfile> UserProfiles { get; set; }
+        public DbSet<UserProfileEntity> UserProfiles { get; set; }
     }
 }

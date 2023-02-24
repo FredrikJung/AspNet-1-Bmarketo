@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Bmarketo.Models.Forms
 {
-    public class LoginForm
+    public class LoginFormModel
     {
         [Required]
         [EmailAddress]

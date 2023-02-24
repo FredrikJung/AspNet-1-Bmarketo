@@ -9,44 +9,40 @@ namespace Bmarketo.Controllers
     public class RegisterController : Controller
     {
         private readonly AuthenticationService _authentication;
-        private readonly UserManager<IdentityUser> _userManager;
 
-        public RegisterController(AuthenticationService authentication, UserManager<IdentityUser> userManager)
+        public RegisterController(AuthenticationService authentication)
         {
             _authentication = authentication;
-            _userManager = userManager;
         }
 
-        public IActionResult Index(string returnUrl = null!)
+        public IActionResult Index(string ReturnUrl = null!)
         {
-            var form = new RegisterForm { ReturnUrl = returnUrl ?? Url.Content("~/") };
+            var form = new RegisterFormModel { ReturnUrl = ReturnUrl ?? Url.Content("/") };
             return View(form);
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(RegisterForm form)
+        public async Task<IActionResult> Index(RegisterFormModel form)
         {
             if(ModelState.IsValid)
             {
-                if(await _userManager.Users.AnyAsync(x => x.Email == form.Email))
+                var result = await _authentication.RegisterAsync(form);
+                if (result is OkResult)
                 {
-                    ModelState.AddModelError(string.Empty, "An account with this email already exists.");
-                    return View(form);
+                    return LocalRedirect(form.ReturnUrl);
                 }
-
-                if (await _authentication.RegisterAsync(form))
+                else if(result is ConflictResult)
                 {
-                    return LocalRedirect(form.ReturnUrl!);
+                    ModelState.AddModelError(string.Empty, "User with this email already exists");
                 }
                 else
                 {
-                    return View(form);
+                    ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
                 }
             }
 
             return View(form);
-
         }
     }
 }

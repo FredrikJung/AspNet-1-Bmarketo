@@ -7,12 +7,12 @@ namespace Bmarketo.Controllers
     {
         public IActionResult Index(string returnUrl = null!)
         {
-            var form = new ContactForm { ReturnUrl = returnUrl ?? Url.Content("~/") };
+            var form = new ContactFormModel { ReturnUrl = returnUrl ?? Url.Content("~/") };
             return View(form);
         }    
 
         [HttpPost]
-        public IActionResult Index(ContactForm form)
+        public IActionResult Index(ContactFormModel form)
         {
             return View();
         }

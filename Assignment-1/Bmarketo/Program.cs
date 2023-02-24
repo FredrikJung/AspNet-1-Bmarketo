@@ -16,6 +16,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<IdentityContext>();
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/login/index";
+    x.AccessDeniedPath = "/accessdenied";
+    x.LogoutPath = "/";
+});
 
 
 

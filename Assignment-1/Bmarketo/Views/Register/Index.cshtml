@@ -1,61 +1,73 @@
-﻿@{
+﻿@model RegisterFormModel
+
+@{
     ViewData["Title"] = "Register";
 }
 
 <section class="register-form-section">
     <div class="container">
-        <form class="register-form">
+        <form asp-controller="Register" asp-action="Index" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data" class="register-form">
+            <div asp-validation-summary="ModelOnly"></div>
             <div class="register-account">
                 <p>
-                    Please Register Your new Account <hr></hr>
+                    Please Register Your new Account <hr/>
                 </p>
             </div>
             <div class="firstname">
                 <label>First Name*</label>
-                <input type="text" name="firstname"></input>
+                <input asp-for="FirstName"/>
+                <span asp-validation-for="FirstName"></span>
             </div>
             <div class="lastname">
                 <label>Last Name*</label>
-                <input type="text" name="lastname"></input>
+                <input asp-for="LastName"/>
+                <span asp-validation-for="LastName"></span>
             </div>
             <div class="streetname">
                 <label>Street Name*</label>
-                <input type="text" name="streetname"></input>
+                <input asp-for="StreetName"/>
+                <span asp-validation-for="StreetName"></span>
             </div>
             <div class="postalcode">
                 <label>Postal Code*</label>
-                <input type="text" name="postalcode"></input>
+                <input asp-for="PostalCode"/>
+                <span asp-validation-for="PostalCode"></span>
             </div>
             <div class="city">
                 <label>City*</label>
-                <input type="text" name="city"></input>
+                <input asp-for="City"/>
+                <span asp-validation-for="City"></span>
             </div>
             <div class="mobile">
                 <label>Mobile (optional)</label>
-                <input type="text" name="mobile"></input>
+                <input asp-for="PhoneNumber"/>
             </div>
             <div class="company">
                 <label>Company (optional)</label>
-                <input type="text" name="company"></input>
+                <input asp-for="Company"/>
             </div>
             <div class="email">
                 <label>E-mail*</label>
-                <input type="text" name="email"></input>
+                <input asp-for="Email"/>
+                <span asp-validation-for="Email"></span>
             </div>
             <div class="password">
                 <label>Password*</label>
-                <input type="text" name="password"></input>
+                <input asp-for="Password"/>
+                <span asp-validation-for="Password"></span>
             </div>
             <div class="confirm-password">
                 <label>Confirm Password*</label>
-                <input type="text" name="confirm-password"></input>
+                <input asp-for="ConfirmPassword"/>
+                <span asp-validation-for="ConfirmPassword"></span>
             </div>
             <div class="upload-image">
                 <label>Upload Profile Image (optional)</label>
-                <input type="text" name="upload-image"></input>
+                <input asp-for="ProfileImage" class="profile-image" accept="image/*"/>
+                <span asp-validation-for="ProfileImage"></span>
             </div>
             <div class="checkbox">
-                <input type="checkbox" name="checkbox"></input>
+                <input type="checkbox"/>
                 <label>I have read and accepts the terms and agreements</label>
             </div>
             <div class="register-submit-box">

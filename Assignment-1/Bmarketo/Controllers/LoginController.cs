@@ -13,14 +13,14 @@ namespace Bmarketo.Controllers
             _authentication = authentication;
         }
 
-        public IActionResult Login(string returnUrl = null!)
+        public IActionResult Index(string returnUrl = null!)
         {
-            var form = new LoginForm { ReturnUrl = returnUrl ?? Url.Content("~/") };
+            var form = new LoginFormModel { ReturnUrl = returnUrl ?? Url.Content("~/") };
             return View(form);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginForm form)
+        public async Task<IActionResult> Index(LoginFormModel form)
         {
             if (ModelState.IsValid)
             {

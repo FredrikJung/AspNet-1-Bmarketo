@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Shared\Partials\" />
+    <Folder Include="wwwroot\images\profiles\" />
   </ItemGroup>
 
   <ItemGroup>

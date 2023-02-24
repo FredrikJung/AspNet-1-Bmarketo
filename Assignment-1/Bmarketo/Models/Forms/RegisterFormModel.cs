@@ -2,7 +2,7 @@
 
 namespace Bmarketo.Models.Forms
 {
-    public class RegisterForm
+    public class RegisterFormModel
     {
         [Required]
         [Display(Name = "First Name")]
@@ -28,12 +28,15 @@ namespace Bmarketo.Models.Forms
         public string Email { get; set; } = null!;
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; } = null!;
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         [Compare(nameof(Password))]
         public string ConfirmPassword { get; set; } = null!;
-        public string? ReturnUrl { get; set; }
+        public IFormFile? ProfileImage { get; set; }
+        public string ReturnUrl { get; set; } = null!;
+        public string UserRole { get; set; } = "User";
     }
 }
