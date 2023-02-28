@@ -88,10 +88,23 @@ namespace Bmarketo.Services
 
         }
 
-        public async Task<bool> LoginAsync(LoginFormModel form, bool keepMeLoggedIn = false)
+        public async Task<IActionResult> LoginAsync(LoginFormModel form, bool keepMeLoggedIn = false)
         {
-            var result = await _signInManager.PasswordSignInAsync(form.Email, form.Password, keepMeLoggedIn, false);
-            return result.Succeeded;
+            if(await _identityContext.Users.AnyAsync(x => x.Email == form.Email))
+            {
+                var result = await _signInManager.PasswordSignInAsync(form.Email, form.Password, keepMeLoggedIn, false);
+                if(result.Succeeded)
+                {
+                    return new OkResult();
+                }
+            }
+
+            return new BadRequestResult();
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 

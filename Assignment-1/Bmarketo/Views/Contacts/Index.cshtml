@@ -1,0 +1,59 @@
+﻿@model ContactFormModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<partial name="~/Views/Shared/Partials/_Header.cshtml" />
+<partial name="~/Views/Shared/Partials/_ContactShowcase.cshtml" />
+
+<section class="contact-form">
+    <div class="container">
+        <form asp-controller="Contacts" asp-action="Index" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" class="contact-form">
+            <div class="write-something">
+                <p>
+                    Write something <hr/>
+                </p>
+            </div>
+            <div class="name">
+                <label>Your Name*</label>
+                <input asp-for="Name">
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="email">
+                <label>Your Email*</label>
+                <input asp-for="Email"/>
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="phone">
+                <label>Phone Number</label>
+                <input asp-for="PhoneNumber"/>
+                <span asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div class="company">
+                <label>Company (optional)</label>
+                <input asp-for="Company"/>
+            </div>
+            <div class="something-write">
+                <label>Something write*</label>
+                <input asp-for="SomethingWrite"/>
+                <span asp-validation-for="SomethingWrite"></span>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox"/>
+                <label>
+                    Save my name, email, and website in this browser for the next time
+                    I comment.
+                </label>
+            </div>
+            <div class="contact-submit-box">
+                <button class="contact-submit-btn" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<partial name="~/Views/Shared/Partials/_Map.cshtml" />
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

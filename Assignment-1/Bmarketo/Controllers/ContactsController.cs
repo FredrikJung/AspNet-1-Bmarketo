@@ -14,7 +14,7 @@ namespace Bmarketo.Controllers
         [HttpPost]
         public IActionResult Index(ContactFormModel form)
         {
-            return View();
+            return View(form);
         }
     }
 }

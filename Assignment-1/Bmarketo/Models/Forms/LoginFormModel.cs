@@ -13,6 +13,6 @@ namespace Bmarketo.Models.Forms
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
         public bool KeepMeLoggedIn { get; set; }
-        public string? ReturnUrl { get; set; }
+        public string ReturnUrl { get; set; } = null!;
     }
 }

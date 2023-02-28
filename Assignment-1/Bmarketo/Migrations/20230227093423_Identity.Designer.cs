@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bmarketo.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20230224173032_IdentityDataBase")]
-    partial class IdentityDataBase
+    [Migration("20230227093423_Identity")]
+    partial class Identity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

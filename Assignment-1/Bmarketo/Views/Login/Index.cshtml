@@ -1,0 +1,51 @@
+﻿@model LoginFormModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<partial name="~/Views/Shared/Partials/_LoginHeader.cshtml" />
+
+<section class="login-form-section">
+    <div class="container">
+        <form asp-controller="Login" asp-action="Index" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" class="login-form">
+            <div asp-validation-summary="ModelOnly" class="validation error"></div>
+            <div class="login-to-account">
+                <p>
+                    Please Login to Your Account <hr/>
+                </p>
+            </div>
+            <div class="email">
+                <label class="email-label">
+                    Email*
+                    <a asp-controller="Register" asp-action="Index" class="register-link">
+                        Don't have an Account yet?
+                    </a>
+                </label>
+                <input asp-for="Email"/>
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+            <div class="password">
+                <label class="password-label">
+                    Password*
+                    <a asp-controller="Register" asp-action="Index" class="forgot-password-link">
+                        Forgot Your Password?
+                    </a>
+                </label>
+                <input asp-for="Password"/>
+                <span asp-validation-for="Password" class="error"></span>
+            </div>
+            <div class="checkbox">
+                <input asp-for="KeepMeLoggedIn"/>
+                <label>Please keep me logged in</label>
+            </div>
+            <div class="login-submit-box">
+                <button class="login-submit-btn" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

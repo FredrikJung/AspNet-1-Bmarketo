@@ -1,0 +1,91 @@
+﻿@model AccountViewModel
+
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<partial name="~/Views/Shared/Partials/_Header.cshtml" />
+
+<section class="myaccount">
+    <div class="container">
+        <form asp-controller="Account" asp-action="Index" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data" class="information-box">
+            <div asp-validation-summary="ModelOnly" class="validation error"></div>
+            <div class="heading">
+                <h1>My Account</h1>
+            </div>
+            <div class="profile-image">
+                <img src="~/images/profiles/@Model.ImageName" alt=""/>
+            </div>
+            <div class="heading2">
+                <h2>My information</h2>
+            </div>
+            <div class="user-id">
+                <label>User ID</label>
+                <input asp-for="UserId" disabled />
+                <hr />
+            </div>
+            <div class="firstname">
+                <label>First name</label>
+                <input asp-for="FirstName" />
+                <hr />
+                <span asp-validation-for="FirstName" class="error"></span>
+            </div>
+            <div class="lastname">
+                <label>Last name</label>
+                <input asp-for="LastName"/>
+                <hr />
+                <span asp-validation-for="LastName" class="error"></span>
+            </div>
+            <div class="email">
+                <label>E-mail</label>
+                <input asp-for="Email"/>
+                <hr />
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+            <div class="phone">
+                <label>Phone number (optional)</label>
+                <input asp-for="PhoneNumber" />
+                <hr/>
+            </div>
+            <div class="company">
+                <label>Company (optional)</label>
+                <input asp-for="Company"/>
+                <hr />
+            </div>
+            <div class="heading3">
+                <h2>Delivery address</h2>
+            </div>
+            <div class="address">
+                <label>Street name</label>
+                <input asp-for="StreetName" />
+                <hr />
+                <span asp-validation-for="StreetName"class="error"></span>
+            </div>
+            <div class="postal-code">
+                <label>Postal code</label>
+                <input asp-for="PostalCode" />
+                <hr />
+                <span asp-validation-for="PostalCode" class="error"></span>
+            </div>
+            <div class="city">
+                <label>City</label>
+                <input asp-for="City" />
+                <hr />
+                <span asp-validation-for="City" class="error"></span>
+            </div>
+            <div class="update-image">
+                <label>Upload new Profile Image (optional)</label>
+                <input asp-for="ProfileImage" class="profile-image" accept="image/*" />
+                <span asp-validation-for="ProfileImage" class="error"></span>
+            </div>
+            <div class="update">
+                <button class="update-btn" type="submit">Update account</button>
+            </div>
+            <div class="logout">
+                <a asp-controller="Account" asp-action="Logout" class="logout-btn">Logout</a> 
+            </div>
+        </form>
+    </div>
+</section>
+
+<partial name="~/Views/Shared/Partials/_Footer.cshtml"/>

@@ -24,13 +24,17 @@ namespace Bmarketo.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (await _authentication.LoginAsync(form))
+                var result = await _authentication.LoginAsync(form);
+                if (result is OkResult)
                 {
-                    return LocalRedirect(form.ReturnUrl!);
+                    return LocalRedirect(form.ReturnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Incorrect email or password");
                 }
             }
-
-            ModelState.AddModelError(string.Empty, "Incorrect email or password");
+            
             return View(form);
         }
     }

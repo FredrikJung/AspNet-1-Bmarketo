@@ -676,6 +676,7 @@ a {
 }
 
     .product-details .images {
+        grid-area: images;
         display: flex;
         flex-direction: column;
     }
@@ -709,6 +710,7 @@ a {
         }
 
     .product-details .product-info {
+        grid-area: product-info;
         display: flex;
         flex-direction: column;
         margin-left: 40px;
@@ -725,7 +727,7 @@ a {
         }
 
             .product-details .product-info .review-box .star p {
-                font-size: 14;
+                font-size: 14px;
                 font-weight: 700;
                 color: #FFB71B;
             }
@@ -903,11 +905,6 @@ a {
                 border: none;
             }
 
-        .product-details .buttons:active {
-            background-color: #FA3150;
-            -moz-columns: #ffffff;
-            columns: #ffffff;
-        }
 
     .product-details .description-heading {
         grid-area: description-heading;
@@ -1246,15 +1243,19 @@ a {
         max-width: 1138px;
         max-height: 478px;
         box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
-        margin-bottom: 150px;
+        margin-bottom: 400px;
     }
 
         .login-form-section .container .login-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: "login-to-account empty" "email email" "password password" "checkbox checkbox" "login-submit-box login-submit-box";
+            grid-template-areas: "login-to-account empty" "validation validation" "email email" "password password" "checkbox checkbox" "login-submit-box login-submit-box";
             margin-left: 40px;
             margin-right: 40px;
+        }
+
+        .login-form-section .container .error {
+            color: #FA3150;
         }
 
             .login-form-section .container .login-form .login-to-account {
@@ -1264,9 +1265,14 @@ a {
 
                 .login-form-section .container .login-form .login-to-account hr {
                     margin-top: 2px;
-                    margin-bottom: 50px;
+                    margin-bottom: 25px;
                     width: 12.5%;
                 }
+
+            .login-form-section .container .login-form .validation {
+                grid-area: validation;
+                margin-bottom: 10px;
+            }
 
             .login-form-section .container .login-form .email {
                 grid-area: email;
@@ -1350,7 +1356,12 @@ a {
     .register-form-section .container .register-form {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: "register-account empty" "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirm-password confirm-password" "upload-image upload-image" "checkbox checkbox" "register-submit-box register-submit-box";
+        grid-template-areas: "register-account empty" "validation validation" "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirm-password confirm-password" "upload-image upload-image" "checkbox checkbox" "register-submit-box register-submit-box";
+    }
+
+    .register-form-section .container .error {
+        color: #FA3150;
+        margin-bottom: 15px;
     }
 
         .register-form-section .container .register-form .register-account {
@@ -1364,6 +1375,11 @@ a {
                 width: 12.5%;
             }
 
+        .register-form-section .container .register-form .validation {
+            grid-area: validation;
+            margin-bottom: 10px;
+        }
+
         .register-form-section .container .register-form .firstname {
             grid-area: firstname;
             display: flex;
@@ -1374,7 +1390,7 @@ a {
                 min-height: 50px;
                 margin-right: 20px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1388,7 +1404,7 @@ a {
             .register-form-section .container .register-form .lastname input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1403,7 +1419,7 @@ a {
                 min-height: 50px;
                 margin-top: 5px;
                 margin-right: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1418,7 +1434,7 @@ a {
                 min-height: 50px;
                 margin-top: 5px;
                 margin-right: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1432,7 +1448,7 @@ a {
             .register-form-section .container .register-form .city input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1447,7 +1463,7 @@ a {
                 min-height: 50px;
                 margin-top: 5px;
                 margin-right: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1461,7 +1477,7 @@ a {
             .register-form-section .container .register-form .company input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1475,7 +1491,7 @@ a {
             .register-form-section .container .register-form .email input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1489,7 +1505,7 @@ a {
             .register-form-section .container .register-form .password input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1503,7 +1519,7 @@ a {
             .register-form-section .container .register-form .confirm-password input {
                 min-height: 50px;
                 margin-top: 5px;
-                margin-bottom: 20px;
+                margin-bottom: 2px;
                 border: none;
                 background-color: #FAFAFA;
             }
@@ -1512,6 +1528,7 @@ a {
             grid-area: upload-image;
             display: flex;
             flex-direction: column;
+            margin-top: 20px;
         }
 
             .register-form-section .container .register-form .upload-image input {
@@ -1519,7 +1536,7 @@ a {
                 margin-top: 5px;
                 margin-bottom: 20px;
                 border: none;
-                background-color: #FAFAFA;
+                background-color: #ffffff;
             }
 
         .register-form-section .container .register-form .checkbox {
@@ -1546,3 +1563,297 @@ a {
                 width: 142px;
                 height: 50px;
             }
+
+.myaccount {
+    min-height: 1110px;
+}
+
+    .myaccount .container {
+        max-width: 1138px;
+        box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+        padding-bottom: 20px;
+    }
+
+        .myaccount .container label {
+            font-size: 14px;
+            color: #616365;
+            font-weight: 400;
+            margin-bottom: 2px;
+            margin-top: 20px
+        }
+
+        .myaccount .container .error {
+            color: #FA3150;
+        }
+
+        .myaccount .container .information-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "validation validation" "heading profile-image" "user-id user-id" "heading2 heading2" "firstname lastname" "email email" "phone company" "heading3 heading3" "address address" "postal-code city" "update-image empty" "logout update";
+        }
+
+            .myaccount .container .information-box .validation {
+                grid-area: validation;
+                margin-top: 20px;
+            }
+
+            .myaccount .container .information-box .heading {
+                grid-area: heading;
+            }
+
+                .myaccount .container .information-box .heading h1 {
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+
+            .myaccount .container .information-box .profile-image {
+                display: flex;
+                justify-content: flex-end;
+                grid-area: profile-image;
+                margin-top: 10px;
+                
+            }
+
+                .myaccount .container .information-box .profile-image img {
+                    height: 200px;
+                    width: 200px;
+                    border: 0.5px solid #bbbbbb;
+                    border-radius: 5px;
+                }
+
+            .myaccount .container .information-box .user-id {
+                grid-area: user-id;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .myaccount .container .information-box .user-id input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .user-id hr {
+                    margin-top: 0px;
+                    margin-bottom: 40px;
+                }
+
+            .myaccount .container .information-box .heading2 {
+                grid-area: heading2;
+            }
+
+                .myaccount .container .information-box .heading2 h2 {
+                    margin-bottom: 20px;
+                }
+
+            .myaccount .container .information-box .firstname {
+                grid-area: firstname;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .myaccount .container .information-box .firstname input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .firstname hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .lastname {
+                grid-area: lastname;
+                display: flex;
+                flex-direction: column;
+                margin-left: 20px;
+            }
+
+                .myaccount .container .information-box .lastname input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .lastname hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .email {
+                grid-area: email;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .myaccount .container .information-box .email input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .email hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .phone {
+                grid-area: phone;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .myaccount .container .information-box .phone input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .phone hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .company {
+                grid-area: company;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+                .myaccount .container .information-box .company input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .company hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .heading3 {
+                grid-area: heading3;
+            }
+
+                .myaccount .container .information-box .heading3 h2 {
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                }
+
+            .myaccount .container .information-box .address {
+                grid-area: address;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .myaccount .container .information-box .address input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .address hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .postal-code {
+                grid-area: postal-code;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .myaccount .container .information-box .postal-code input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .postal-code hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .myaccount .container .information-box .city {
+                grid-area: city;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+                .myaccount .container .information-box .city input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .myaccount .container .information-box .city hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+
+            .myaccount .container .information-box .update-image {
+                grid-area: update-image;
+            }
+
+                .myaccount .container .information-box .update-image input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+            .myaccount .container .information-box .logout {
+                grid-area: logout;
+                margin-top: 40px;
+                margin-bottom:20px;
+            }
+
+                .myaccount .container .information-box .logout .logout-btn {
+                    border: none;
+                    text-decoration:none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+            .myaccount .container .information-box .update {
+                grid-area: update;
+                margin-top: 40px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content:flex-end;
+            }
+
+            .myaccount .container .information-box .update .update-btn {
+                border: none;
+                text-decoration: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }    

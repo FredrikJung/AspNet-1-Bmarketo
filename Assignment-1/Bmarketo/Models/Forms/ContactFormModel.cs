@@ -21,6 +21,6 @@ namespace Bmarketo.Models.Forms
         [Required]
         [Display(Name = "Something write")]
         public string SomethingWrite { get; set; } = null!;
-        public string? ReturnUrl { get; set; } 
+        public string ReturnUrl { get; set; } = null!;
     }
 }

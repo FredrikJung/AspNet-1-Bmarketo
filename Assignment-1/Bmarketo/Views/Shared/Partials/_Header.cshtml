@@ -1,0 +1,32 @@
+﻿<section class="header container">
+    <div class="logo">
+        <a asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" alt="" /></a>
+    </div>
+    <nav class="menu">
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="menu-link" asp-controller="Admin" asp-action="Index">ADMIN CENTER</a>
+        }
+        <a class="menu-link" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="menu-link" asp-controller="Products" asp-action="Index">PRODUCTS</a>
+        <a class="menu-link" asp-controller="Contacts" asp-action="Index">CONTACT</a>
+    </nav>
+    <nav class="menulinkicons">
+        <a class="menu-link" asp-controller="Products" asp-action="Search"><i class="fa-regular fa-magnifying-glass"></i></a>
+
+        @if (User.Identity!.IsAuthenticated)
+        {
+            <a class="menu-link" asp-controller="Account" asp-action="Index">Account</a>
+        }
+        else
+        {
+         <a class="menu-link" asp-controller="Login" asp-action="Index">Login</a>
+        }
+        
+
+        <a class="menu-link" asp-controller="Shopping" asp-action="Index">
+            <i class="fa-sharp fa-regular fa-rectangle-vertical"></i>
+        </a>
+        <span class="menu-badge">2</span>
+</nav>
+</section>
