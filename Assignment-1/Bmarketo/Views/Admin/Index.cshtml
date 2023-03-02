@@ -1,10 +1,42 @@
 ﻿
+@model IEnumerable<IdentityUser>
 
 @{
     ViewData["Title"] = "AdminCenter";
 }
 <partial name="~/Views/Shared/Partials/_Header.cshtml" />
 
-<h1>Admin Center</h1>
+<section class="admin-center">
+    <h1>Admin Center</h1>
+    <div class="container">
+        @if (Model.Any())
+        {
+            foreach (var user in Model)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">
+                        User ID: @user.Id
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@user.UserName</h5>
+                        <p>@user.PhoneNumber</p>
+                    </div>
+                    <div class="card-footer">
+                        <form asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id" method="post" class="footer-form">
+                            <a asp-controller="Admin" asp-action="EditUser" 
+                             asp-route-id="@user.Id" class="edit-btn">Edit</a>
+                            <a asp-controller="Admin" asp-action="ManageUserRoles" asp-route-userId="@user.Id" class="roles-btn">Manage Roles</a>
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>No users created yet</h3>
+        }
+    </div>
+</section>
 
 <partial name="~/Views/Shared/Partials/_Footer.cshtml" />

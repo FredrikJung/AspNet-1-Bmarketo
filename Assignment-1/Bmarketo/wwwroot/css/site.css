@@ -106,15 +106,17 @@ a {
             font-weight: 500;
         }
 
+            .header .menu .menu-link:active {
+                color: #FA3150;
+                text-decoration: none;
+            }
+
             .header .menu .menu-link:hover {
                 color: #FA3150;
                 text-decoration: none;
             }
 
-        .header .menu .active {
-            color: #FA3150;
-            text-decoration: none;
-        }
+
 
     .header .menulinkicons {
         grid-area: menulinkicons;
@@ -248,15 +250,22 @@ a {
             .product-grid .card .card-body .price-container .card-sale-price {
                 display: flex;
                 justify-content: flex-start;
-                text-decoration: line-through;
-                margin-right: 10px;
+                
             }
 
-            .product-grid .card .card-body .price-container .card-price {
+            .product-grid .card .card-body .price-container .card-price  {
                 display: flex;
                 justify-content: flex-start;
                 font-size: 16px;
                 font-weight: 400;
+            }
+            .product-grid .card .card-body .price-container .card-price-line-through {
+                display: flex;
+                text-decoration: line-through;
+                justify-content: flex-start;
+                font-size: 16px;
+                font-weight: 400;
+                margin-right: 10px;
             }
 
             .product-grid .card .card-body .price-container .shopping-icon {
@@ -294,8 +303,7 @@ a {
         }
 
 .showcase-discount {
-    background: #f3f3f3;
-    background: linear-gradient(90deg, #f3f3f3 0%, #f5f5f5 100%);
+    background: #FAEFEF;
     margin-top: 60px;
 }
 
@@ -341,8 +349,6 @@ a {
                 .showcase-discount .card .card-body .price-container .card-sale-price {
                     display: flex;
                     justify-content: flex-start;
-                    text-decoration: line-through;
-                    margin-right: 10px;
                 }
 
                 .showcase-discount .card .card-body .price-container .card-price {
@@ -350,6 +356,15 @@ a {
                     justify-content: flex-start;
                     font-size: 16px;
                     font-weight: 400;
+                }
+
+                .showcase-discount .card .card-body .price-container .card-price-line-through {
+                    display: flex;
+                    text-decoration: line-through;
+                    justify-content: flex-start;
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-right: 10px;
                 }
 
                 .showcase-discount .card .card-body .price-container .shopping-icon {
@@ -1564,8 +1579,189 @@ a {
                 height: 50px;
             }
 
+.product-form-section .container {
+    max-width: 1138px;
+    min-height: 1110px;
+    box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+    margin-top: 80px;
+    margin-bottom: 160px;
+}
+
+    .product-form-section .container .product-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "product-title product-title" "validation validation" "name category" "price discount-price" "tag empty1" "short-description short-description" "long-description long-description" "image-alt image-alt" "upload-image upload-image" "product-submit-box product-submit-box";
+    }
+
+        .product-form-section .container .error {
+            color: #FA3150;
+            margin-bottom: 15px;
+        }
+
+        .product-form-section .container .product-form .product-title {
+            grid-area: product-title;
+            margin-top: 30px;
+        }
+
+        .product-form-section .container .product-form .product-title hr {
+            margin-top: 1px;
+            margin-bottom: 25px;
+            width: 12.5%;
+        }
+
+    .product-form-section .container .product-form .validation {
+        grid-area: validation;
+        margin-bottom: 10px;
+    }
+
+    .product-form-section .container .product-form .name {
+        grid-area: name;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .name input {
+            min-height: 50px;
+            margin-right: 20px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+        .product-form-section .container .product-form .category {
+            grid-area: category;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-form-section .container .product-form .category input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+    .product-form-section .container .product-form .price {
+        grid-area: price;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .price input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+        .product-form-section .container .product-form .discount-price {
+            grid-area: discount-price;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-form-section .container .product-form .discount-price input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+    .product-form-section .container .product-form .tag {
+        grid-area: tag;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .tag input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+    .product-form-section .container .product-form .short-description {
+        grid-area: short-description;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .short-description input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+    .product-form-section .container .product-form .long-description {
+        grid-area: long-description;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .long-description input {
+            min-height: 150px;
+            margin-top: 5px;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+    .product-form-section .container .product-form .image-alt {
+        grid-area: image-alt;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .product-form-section .container .product-form .image-alt input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border: none;
+            background-color: #FAFAFA;
+        }
+
+
+    .product-form-section .container .product-form .upload-image {
+        grid-area: upload-image;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+        .product-form-section .container .product-form .upload-image input {
+            min-height: 50px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #ffffff;
+        }
+
+    .product-form-section .container .product-form .product-submit-box {
+        grid-area: product-submit-box;
+    }
+
+        .product-form-section .container .product-form .product-submit-box .product-submit-btn {
+            border: none;
+            background-color: #FA3150;
+            color: #ffffff;
+            width: 142px;
+            height: 50px;
+        }
+
 .myaccount {
     min-height: 1110px;
+    margin-top: 80px;
+    margin-bottom: 160px;
 }
 
     .myaccount .container {
@@ -1590,7 +1786,7 @@ a {
         .myaccount .container .information-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: "validation validation" "heading profile-image" "user-id user-id" "heading2 heading2" "firstname lastname" "email email" "phone company" "heading3 heading3" "address address" "postal-code city" "update-image empty" "logout update";
+            grid-template-areas: "validation validation" "heading profile-image" "user-id user-id" "heading2 heading2" "firstname lastname" "email email" "phone company" "heading3 heading3" "address address" "postal-code city" "update-image empty" "update logout";
         }
 
             .myaccount .container .information-box .validation {
@@ -1627,6 +1823,7 @@ a {
                 display: flex;
                 flex-direction: column;
                 margin-top: 10px;
+                max-width: 470px;
             }
 
                 .myaccount .container .information-box .user-id input {
@@ -1638,8 +1835,9 @@ a {
 
                 .myaccount .container .information-box .user-id hr {
                     margin-top: 0px;
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
                 }
+
 
             .myaccount .container .information-box .heading2 {
                 grid-area: heading2;
@@ -1825,7 +2023,9 @@ a {
             .myaccount .container .information-box .logout {
                 grid-area: logout;
                 margin-top: 40px;
-                margin-bottom:20px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: flex-end;
             }
 
                 .myaccount .container .information-box .logout .logout-btn {
@@ -1843,8 +2043,7 @@ a {
                 grid-area: update;
                 margin-top: 40px;
                 margin-bottom: 20px;
-                display: flex;
-                justify-content:flex-end;
+
             }
 
             .myaccount .container .information-box .update .update-btn {
@@ -1853,7 +2052,452 @@ a {
                 background-color: #FA3150;
                 color: #ffffff;
                 padding-top: 12px;
-                padding-bottom: 12px;
+                padding-bottom: 11px;
                 padding-left: 40px;
                 padding-right: 40px;
-            }    
+            }
+
+.admin-center {
+    min-height: 1110px;
+}
+
+    .admin-center h1{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .admin-center .container {
+        max-width: 1138px;
+        box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+        padding-top: 30px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .admin-center .container .card{
+            width: 600px;
+            min-height: 200px;
+        }
+
+        .admin-center .container .card-footer{
+            display: flex;
+            font-size: 14px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+            .admin-center .container .card-footer .footer-form {
+                display: flex;
+                flex-direction: row;
+            }
+
+                .admin-center .container .card-footer .edit-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    border: none;
+                    text-decoration: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    height: 30px;
+                    width: 70px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                .admin-center .container .card-footer .roles-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    border: none;
+                    text-decoration: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    height: 30px;
+                    width: 120px;
+                    margin-left: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                .admin-center .container .card-footer .delete-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    border: none;
+                    text-decoration: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    height: 30px;
+                    width: 70px;
+                    margin-left: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+.edit-user {
+    min-height: 1110px;
+    margin-top: 80px;
+    margin-bottom: 160px;
+}
+
+    .edit-user .container {
+        max-width: 1138px;
+        box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+        padding-bottom: 20px;
+    }
+
+        .edit-user .container label {
+            font-size: 14px;
+            color: #616365;
+            font-weight: 400;
+            margin-bottom: 2px;
+            margin-top: 20px
+        }
+
+        .edit-user .container .error {
+            color: #FA3150;
+        }
+
+        .edit-user .container .information-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "validation validation" "heading profile-image" "user-id user-id" "heading2 heading2" "firstname lastname" "email email" "phone company" "heading3 heading3" "address address" "postal-code city" "update-image empty" "update cancel";
+        }
+
+            .edit-user .container .information-box .validation {
+                grid-area: validation;
+                margin-top: 20px;
+            }
+
+            .edit-user .container .information-box .heading {
+                grid-area: heading;
+            }
+
+                .edit-user .container .information-box .heading h1 {
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+
+            .edit-user .container .information-box .profile-image {
+                display: flex;
+                justify-content: flex-end;
+                grid-area: profile-image;
+                margin-top: 10px;
+            }
+
+                .edit-user .container .information-box .profile-image img {
+                    height: 200px;
+                    width: 200px;
+                    border: 0.5px solid #bbbbbb;
+                    border-radius: 5px;
+                }
+
+            .edit-user .container .information-box .user-id {
+                grid-area: user-id;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .edit-user .container .information-box .user-id input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .user-id hr {
+                    margin-top: 0px;
+                    margin-bottom: 40px;
+                }
+
+            .edit-user .container .information-box .heading2 {
+                grid-area: heading2;
+            }
+
+                .edit-user .container .information-box .heading2 h2 {
+                    margin-bottom: 20px;
+                }
+
+            .edit-user .container .information-box .firstname {
+                grid-area: firstname;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .edit-user .container .information-box .firstname input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .firstname hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .lastname {
+                grid-area: lastname;
+                display: flex;
+                flex-direction: column;
+                margin-left: 20px;
+            }
+
+                .edit-user .container .information-box .lastname input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .lastname hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .email {
+                grid-area: email;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .edit-user .container .information-box .email input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .email hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .phone {
+                grid-area: phone;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .edit-user .container .information-box .phone input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .phone hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .company {
+                grid-area: company;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+                .edit-user .container .information-box .company input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .company hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .heading3 {
+                grid-area: heading3;
+            }
+
+                .edit-user .container .information-box .heading3 h2 {
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                }
+
+            .edit-user .container .information-box .address {
+                grid-area: address;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .edit-user .container .information-box .address input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .address hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .postal-code {
+                grid-area: postal-code;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+                .edit-user .container .information-box .postal-code input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .postal-code hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+            .edit-user .container .information-box .city {
+                grid-area: city;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+                .edit-user .container .information-box .city input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+                .edit-user .container .information-box .city hr {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                }
+
+
+            .edit-user .container .information-box .update-image {
+                grid-area: update-image;
+            }
+
+                .edit-user .container .information-box .update-image input {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    min-height: 30px;
+                    border: none;
+                }
+
+            .edit-user .container .information-box .cancel {
+                grid-area: cancel;
+                margin-top: 40px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+                .edit-user .container .information-box .cancel .cancel-btn {
+                    border: none;
+                    text-decoration: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+            .edit-user .container .information-box .update {
+                grid-area: update;
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+
+                .edit-user .container .information-box .update .update-btn {
+                    border: none;
+                    text-decoration: none;
+                    background-color: #FA3150;
+                    color: #ffffff;
+                    padding-top: 12px;
+                    padding-bottom: 11px;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+.manager-role {
+    min-height: 1110px;
+}
+
+    .manager-role .container {
+        max-width: 1138px;
+        min-height:600px;
+        box-shadow: 0 0.2px 1.2px rgba(0, 0, 0, 0.2);
+        padding-top: 30px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .manager-role .container .card {
+            width: 600px;
+            min-height: 200px;
+            
+        }
+
+        .manager-role .container .card-footer {
+            display: flex;
+            font-size: 14px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .manager-role .container .form-check-input {
+
+        }
+
+        .manager-role .container .card-footer .update-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            border: none;
+            text-decoration: none;
+            background-color: #FA3150;
+            color: #ffffff;
+            height: 30px;
+            width: 70px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+            .manager-role .container .card-footer .cancel-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                border: none;
+                text-decoration: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                height: 30px;
+                width: 70px;
+                margin-left: 5px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+

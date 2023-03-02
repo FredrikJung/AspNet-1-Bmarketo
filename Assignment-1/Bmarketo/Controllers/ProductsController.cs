@@ -1,19 +1,55 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Bmarketo.Models.Forms;
+using Bmarketo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bmarketo.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult Index()
+
+        private readonly ProductService _productService;
+
+        public ProductsController(ProductService productService)
         {
-            return View();
+            _productService = productService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var products = await _productService.GetAllProductsAsync();
+            return View(products);
         }
 
         [Authorize(Roles = "Admin, Project Manager")]
-        public IActionResult Product()
+        public IActionResult CreateProducts(string ReturnUrl = null!)
         {
-            return View();
+            var form = new ProductFormModel { ReturnUrl = ReturnUrl ?? Url.Content("/") };
+            return View(form);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProducts(ProductFormModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _productService.CreateProductAsync(form);
+                if (result is OkResult)
+                {
+                    return LocalRedirect(form.ReturnUrl);
+                }
+                else if (result is ConflictResult)
+                {
+                    ModelState.AddModelError(string.Empty, "Product with this name already exists");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
+                }
+            }
+
+            return View(form);
+        }
+
     }
 }

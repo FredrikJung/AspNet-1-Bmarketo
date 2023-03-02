@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProductEntity>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+<partial name="~/Views/Shared/Partials/_Header.cshtml" />
+
+<section class="product-grid">
+    <div class="container">
+        <h1>All products</h1>
+        @if (User.IsInRole("Admin") || User.IsInRole("Product Manager"))
+        {
+            <a asp-controller="Products" asp-action="CreateProducts" class="edit-btn">Create product</a>
+        }
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            @if (Model.Any())
+            {
+                foreach (var product in Model)
+                {
+                    <div class="col">
+                        <div class="card-img-container">
+                            <img src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" class="card-img-top" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <div class="price-container">
+                                <p class="card-sale-price">$@product.DiscountPrice</p>
+                                <p class="card-price">$@product.Price</p>
+                                <a asp-controller="" asp-action="" class="shopping-icon"><i class="fa-regular fa-cart-plus fa-lg"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            @if (User.IsInRole("Admin") || User.IsInRole("Product Manager"))
+                            {
+                                <a asp-controller="Products" asp-action="EditProduct"
+                                    asp-route-id="@product.Id" class="edit-btn">Edit</a>
+                                <button type="submit" class="delete-btn">Delete</button>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <h3>No products created yet</h3>
+            }
+        </div>
+
+    </div>
+
+    
+</section>
+
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

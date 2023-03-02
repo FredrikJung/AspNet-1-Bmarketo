@@ -1,20 +1,20 @@
 ﻿@model AccountViewModel
 
 @{
-    ViewData["Title"] = "My Account";
+    ViewData["Title"] = "Edit User";
 }
 
 <partial name="~/Views/Shared/Partials/_Header.cshtml" />
 
-<section class="myaccount">
+<section class="edit-user">
     <div class="container">
-        <form asp-controller="Account" asp-action="Index" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data" class="information-box">
+        <form asp-controller="Admin" asp-action="EditUser" method="post" asp-route-ReturnUrl="@Model.ReturnUrl" enctype="multipart/form-data" class="information-box">
             <div asp-validation-summary="ModelOnly" class="validation error"></div>
             <div class="heading">
                 <h1>My Account</h1>
             </div>
             <div class="profile-image">
-                <img src="~/images/profiles/@Model.ImageName" alt=""/>
+                <img src="~/images/profiles/@Model.ImageName" alt="" />
             </div>
             <div class="heading2">
                 <h2>My information</h2>
@@ -32,24 +32,24 @@
             </div>
             <div class="lastname">
                 <label>Last name</label>
-                <input asp-for="LastName"/>
+                <input asp-for="LastName" />
                 <hr />
                 <span asp-validation-for="LastName" class="error"></span>
             </div>
             <div class="email">
                 <label>E-mail</label>
-                <input asp-for="Email" readonly/>
+                <input asp-for="Email" readonly />
                 <hr />
                 <span asp-validation-for="Email" class="error"></span>
             </div>
             <div class="phone">
                 <label>Phone number (optional)</label>
                 <input asp-for="PhoneNumber" />
-                <hr/>
+                <hr />
             </div>
             <div class="company">
                 <label>Company (optional)</label>
-                <input asp-for="Company"/>
+                <input asp-for="Company" />
                 <hr />
             </div>
             <div class="heading3">
@@ -59,7 +59,7 @@
                 <label>Street name</label>
                 <input asp-for="StreetName" />
                 <hr />
-                <span asp-validation-for="StreetName"class="error"></span>
+                <span asp-validation-for="StreetName" class="error"></span>
             </div>
             <div class="postal-code">
                 <label>Postal code</label>
@@ -81,11 +81,11 @@
             <div class="update">
                 <button class="update-btn" type="submit">Update account</button>
             </div>
-            <div class="logout">
-                <a asp-controller="Account" asp-action="Logout" class="logout-btn">Logout</a> 
+            <div class="cancel">
+                <a asp-controller="Admin" asp-action="Index" class="cancel-btn">Cancel</a>
             </div>
         </form>
     </div>
 </section>
 
-<partial name="~/Views/Shared/Partials/_Footer.cshtml"/>
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

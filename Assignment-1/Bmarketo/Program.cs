@@ -1,4 +1,5 @@
 using Bmarketo.Contexts;
+using Bmarketo.Models.Identity;
 using Bmarketo.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ builder.Services.AddScoped<ContactService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlBmarketo")));
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlIdentity")));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
 {
@@ -22,6 +24,8 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.AccessDeniedPath = "/accessdenied";
     x.LogoutPath = "/";
 });
+
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, AppUserClaims>();
 
 
 

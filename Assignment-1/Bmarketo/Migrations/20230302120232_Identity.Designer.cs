@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bmarketo.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20230227093423_Identity")]
+    [Migration("20230302120232_Identity")]
     partial class Identity
     {
         /// <inheritdoc />

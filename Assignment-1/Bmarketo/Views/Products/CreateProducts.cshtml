@@ -1,0 +1,72 @@
+﻿@model ProductFormModel
+
+@{
+    ViewData["Title"] = "Create Products";
+}
+
+<partial name="~/Views/Shared/Partials/_Header.cshtml" />
+
+<section class="product-form-section">
+    <div class="container">
+        <form asp-controller="Products" asp-action="CreateProducts" asp-route-ReturnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data" class="product-form">
+            <div asp-validation-summary="ModelOnly" class="validation error"></div>
+            <div class="product-title">
+                <p>
+                    Create new product <hr />
+                </p>
+            </div>
+            <div class="name">
+                <label>Name*</label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="error"></span>
+            </div>
+            <div class="category">
+                <label>Category*</label>
+                <input asp-for="Category" />
+                <span asp-validation-for="Category" class="error"></span>
+            </div>
+            <div class="price">
+                <label>Price*</label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price" class="error"></span>
+            </div>
+            <div class="discount-price">
+                <label>Discount price (optional)</label>
+                <input asp-for="DiscountPrice" />
+                <span asp-validation-for="DiscountPrice" class="error"></span>
+            </div>
+            <div class="tag">
+                <label>Tag (optional)</label>
+                <input asp-for="Tag" />
+                <span asp-validation-for="Tag" class="error"></span>
+            </div>
+            <div class="short-description">
+                <label>Short description*</label>
+                <input asp-for="ShortDescription" />
+                <span asp-validation-for="ShortDescription" class="error"></span>
+            </div>
+            <div class="long-description">
+                <label>Long description*</label>
+                <input asp-for="LongDescription" />
+                <span asp-validation-for="LongDescription" class="error"></span>
+            </div>
+            <div class="image-alt">
+                <label>Image alt text*</label>
+                <input asp-for="ImageAltText" />
+                <span asp-validation-for="ImageAltText" class="error"></span>
+            </div>
+            <div class="upload-image">
+                <label>Upload Product Image*</label>
+                <input asp-for="ProductImage" class="profile-image" accept="image/*" />
+                <span asp-validation-for="ProductImage" class="error"></span>
+            </div>
+            <div class="product-submit-box">
+                <button class="product-submit-btn" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

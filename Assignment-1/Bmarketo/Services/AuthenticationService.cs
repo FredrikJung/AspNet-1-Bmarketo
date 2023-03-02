@@ -71,6 +71,7 @@ namespace Bmarketo.Services
                     City = form.City,
                     Company = form.Company,
                     
+                    
                 };
 
                 if(form.ProfileImage != null)

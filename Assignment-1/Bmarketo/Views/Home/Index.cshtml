@@ -1,6 +1,205 @@
-﻿@{
+﻿@model IEnumerable<ProductEntity>
+
+@{
     ViewData["Title"] = "Home";
 }
 
+
+@*Header*@
 <partial name="~/Views/Shared/Partials/_Header.cshtml" />
+<section class="showcase">
+    <div class="container">
+        <div class="content">
+            <div class="titles">
+                <p class="title-2">WELCOME TO BMARKETO SHOP</p>
+                <p class="title-1">Exclusive Chair gold Collection.</p>
+                <button class="btn btn-theme mt-4">SHOP NOW</button>
+            </div>
+        </div>
+        <img src="~/images/showcase-img.png" alt="Showcase Image" />
+    </div>
+</section>
+
+@*ProductGrid*@
+<section class="product-grid">
+    <div class="container">
+        <div class="title">Best Collection</div>
+        <div class="categories">
+            <a asp-controller="" asp-action="" class="category-link">
+                All
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Bags
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action="" products" class="category-link">
+                Dress
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Decorations
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Essentials
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Interior
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Laptop
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Mobile
+            </a>
+            <p class="slash">&nbsp;/&nbsp;</p>
+            <a asp-controller="" asp-action=""products" class="category-link">
+                Beauty
+            </a>
+        </div>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            @foreach (var product in Model.Where(x => x.Tag == "Best Collection"))
+            {
+            <div class="col">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" class="card-img-top" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <div class="price-container">
+                                @if(product.DiscountPrice != 0)
+                                {
+                                    <p class="card-price-line-through">$@product.Price</p>
+                                    <p class="card-sale-price">$@product.DiscountPrice</p>
+                                    <a asp-controller="" asp-action="" class="shopping-icon"><i class="fa-regular fa-cart-plus fa-lg"></i></a>
+                                }
+                                else
+                                {
+                                    <p class="card-price">$@product.Price</p>
+                                    <a asp-controller="" asp-action="" class="shopping-icon"><i class="fa-regular fa-cart-plus fa-lg"></i></a>
+                                }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="extended">
+            <a asp-controller="" asp-action="" class="btn-load">
+                LOAD MORE <i class="fa-solid fa-rotate-right fa-xs"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+@*ShowcaseDiscount*@
+<section class="showcase-discount">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            @foreach (var product in Model.Where(x => x.Tag == "DiscountShowcase").Where(x => x.Name == "Guitar Capo"))
+            {
+            <div class="col">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a asp-controller="" asp-action="">
+                                <img src="~/images/profiles/@product.ImageSource" class="card-img-top" alt="@product.ImageAltText" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <div class="price-container">
+                            <p class="card-price-line-through">$@product.Price</p>
+                            <p class="card-sale-price">$@product.DiscountPrice</p>
+                            <a asp-controller="" asp-action="" class="shopping-icon">
+                                <i class="fa-regular fa-cart-plus fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            <div class="col">
+                <div class="discount-card">
+                    <p class="title-3">UP TO SELL</p >
+                    <p class="title-1">50% OFF</p>
+                    <p class="title-2">Get The Best Price</p>
+                    <p class="ptext">Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki</p>
+                    <a asp-controller="" asp-action="" class="ltext">Discover More</a>
+                </div>
+            </div>
+            @foreach (var product in Model.Where(x => x.Tag == "DiscountShowcase").Where(x => x.Name == "HP Laptop"))
+            {
+                <div class="col">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <a asp-controller="" asp-action="">
+                                <img src="~/images/profiles/@product.ImageSource" class="card-img-top" alt="@product.ImageAltText" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <div class="price-container">
+                                <p class="card-price-line-through">$@product.Price</p>
+                                <p class="card-sale-price">$@product.DiscountPrice</p>
+                                <a asp-controller="" asp-action="" class="shopping-icon">
+                                    <i class="fa-regular fa-cart-plus fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@*Carousel*@
+<section class="carousel-section container">
+    <div class="title">{title}</div>
+    <div id="carouselExampleControls"
+         class="carousel slide"
+         data-bs-ride="carousel">
+        <div id="carousel-box" class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    @*Foreach loop med ProductCard partial*@
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    @*Foreach loop med ProductCard partial*@
+                </div>
+            </div>
+        </div>
+        <div class="arrows">
+            <div class="left-arrow">
+                <i class="fa-light fa-square-chevron-left fa-2xl"
+                   data-bs-target="#carouselExampleControls"
+                   data-bs-slide="prev"></i>
+            </div>
+
+            <div class="right-arrow">
+                <i class="fa-light fa-square-chevron-right fa-2xl"
+                   data-bs-target="#carouselExampleControls"
+                   data-bs-slide="next"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*TopProducs*@
+<section class="top-product">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            @*Foreach loop med TopProductCard partial*@
+        </div>
+    </div>
+</section>
+
+@*Footer*@
 <partial name="~/Views/Shared/Partials/_Footer.cshtml" />
