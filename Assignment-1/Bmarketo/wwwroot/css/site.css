@@ -277,9 +277,45 @@ a {
                 display: none;
             }
 
-    .product-grid .card:hover .shopping-icon {
-        display: block !important;
-    }
+        .product-grid .card .card-footer{
+            display: flex;
+            background-color: white;
+        }
+
+            .product-grid .card .card-footer .edit-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                border: none;
+                text-decoration: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                height: 30px;
+                width: 70px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            .product-grid .card .card-footer .delete-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                border: none;
+                text-decoration: none;
+                background-color: #FA3150;
+                color: #ffffff;
+                height: 30px;
+                width: 70px;
+                margin-left: 5px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+        .product-grid .card:hover .shopping-icon {
+            display: block !important;
+        }
 
 .product-grid .extended {
     display: flex;
