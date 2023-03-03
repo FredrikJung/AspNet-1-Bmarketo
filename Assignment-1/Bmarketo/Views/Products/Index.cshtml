@@ -25,7 +25,9 @@
                 <div class="col">
                     <div class="card mb-2">
                         <div class="card-img-container">
-                            <img src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" class="card-img-top" />
+                                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                                    <img src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" class="card-img-top" />
+                                </a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">@product.Name</h5>

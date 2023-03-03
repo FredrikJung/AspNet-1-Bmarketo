@@ -65,5 +65,16 @@ namespace Bmarketo.Services
             }
             catch { return null!; }
         }
+
+        public async Task<ProductEntity> GetProductAsync(string id)
+        {
+            try
+            {
+                var product = await _context.Products.FirstOrDefaultAsync(x => x.Id.ToString() == id);
+                return product!;
+            }
+            catch { return null!; }
+
+        }
     }
 }

@@ -516,7 +516,6 @@ a {
                 .carousel-section .card .card-body .price-container .card-sale-price {
                     display: flex;
                     justify-content: flex-start;
-                    text-decoration: line-through;
                     margin-right: 10px;
                 }
 
@@ -525,6 +524,15 @@ a {
                     justify-content: flex-start;
                     font-size: 16px;
                     font-weight: 400;
+                }
+
+                .carousel-section .card .card-body .price-container .card-price-line-through {
+                    display: flex;
+                    text-decoration: line-through;
+                    justify-content: flex-start;
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-right: 10px;
                 }
 
                 .carousel-section .card .card-body .price-container .shopping-icon {
@@ -903,7 +911,7 @@ a {
             color: #ffffff;
             text-decoration: none;
             border: none;
-            width: 294px;
+            width: 290px;
             height: 50px;
         }
 
@@ -915,7 +923,7 @@ a {
             }
 
         .product-details .buttons #additional {
-            width: 294px;
+            width: 290px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
@@ -929,7 +937,7 @@ a {
             }
 
         .product-details .buttons #review {
-            width: 294px;
+            width: 290px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
@@ -943,7 +951,7 @@ a {
             }
 
         .product-details .buttons #shipping {
-            width: 294px;
+            width: 290px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
@@ -970,10 +978,11 @@ a {
     .product-details .description-box {
         grid-area: description-box;
         display: flex;
+        
     }
 
         .product-details .description-box .description-text {
-            word-spacing: 8px;
+            text-align: justify;
         }
 
         .product-details .description-box .description-image {
@@ -1061,7 +1070,15 @@ a {
 
             .related-products .card .card-body .price-container .card-sale-price {
                 display: flex;
+                justify-content: flex-start;         
+                
+            }
+
+            .related-products .card .card-body .price-container .card-price-line-through {
+                display: flex;
                 justify-content: flex-start;
+                font-size: 16px;
+                font-weight: 400;
                 text-decoration: line-through;
                 margin-right: 10px;
             }
@@ -1071,6 +1088,7 @@ a {
                 justify-content: flex-start;
                 font-size: 16px;
                 font-weight: 400;
+                
             }
 
             .related-products .card .card-body .price-container .shopping-icon {

@@ -1,0 +1,246 @@
+﻿@model Tuple<IEnumerable<ProductEntity>, ProductEntity>
+
+@{
+    ViewData["Title"] = Model.Item2.Name;
+}
+
+<partial name="~/Views/Shared/Partials/_Header.cshtml" />
+<partial name="~/Views/Shared/Partials/_ProductShowcase.cshtml" />
+<section class="product-details container">
+    <div class="images">
+        <div class="image-1">
+            <img src="~/images/profiles/@Model.Item2.ImageSource" alt="@Model.Item2.ImageAltText" />
+        </div>
+        <div class="image-carousel">
+            <div id="carouselExampleControls"
+                 class="carousel slide"
+                 data-bs-ride="carousel">
+                <div id="carousel-box" class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                            <div class="col-md-3">
+                                <img class="carousel-image"
+                                     src="~/images/profiles/@Model.Item2.ImageSource"
+                                     alt="@Model.Item2.ImageAltText" />
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                        <i class="fa-sharp fa-regular fa-rectangle-vertical color black"
+                           data-bs-target="#carouselExampleControls"
+                           data-bs-slide="prev"></i>
+                    </button>
+                    <button class="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                        <i class="fa-sharp fa-regular fa-rectangle-vertical"
+                           data-bs-target="#carouselExampleControls"
+                           data-bs-slide="next"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-info">
+        <div class="title">
+            <h2>@Model.Item2.Name</h2>
+        </div>
+        <div class="short-discription">
+            <p>@Model.Item2.ShortDescription</p>
+        </div>
+        <div class="review-box">
+            <div class="star">
+                <p>starstarstarstarstar</p>
+            </div>
+            <div class="review">
+                <p>16 reviews</p>
+            </div>
+        </div>
+        @if (Model.Item2.DiscountPrice != 0)
+        {
+            <div class="product-price">$@Model.Item2.DiscountPrice</div>
+        }
+        else
+        {
+            <div class="product-price">$@Model.Item2.Price</div>
+        }
+        <div class="add-box">
+            <button id="decrement"> - </button>
+            <input type="number" value="2"/>
+            <button id="increment"> + </button>
+            <button id="add-to-cart">
+                Add to Cart
+                <i class="fa-sharp fa-regular fa-rectangle-vertical"></i>
+            </button>
+        </div>
+        <div class="color-sku-box">
+            <button id="red"></button>
+            <button id="yellow"></button>
+            <button id="gray"></button>
+            <p>SKU: @Model.Item2.Id</p>
+        </div>
+        <div class="add-to-wishlist">
+            <button id="wishlist-btn">Add to wishlist</button>
+        </div>
+        <div class="category">Category: @Model.Item2.Category</div>
+    </div>
+    <div class="buttons">
+        <button id="description">DESCRIPTION</button>
+        <button id="additional">ADDITIONAL INFO</button>
+        <button id="review">REVIEWS (0)</button>
+        <button id="shipping">SHIPPING & DELIVERY</button>
+    </div>
+    <div class="description-heading">
+        <h2>
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+            molestie.
+        </h2>
+    </div>
+    <div class="description-box">
+        <div class="description-text">
+            <p>@Model.Item2.LongDescription</p>
+
+        </div>
+        <div class="description-image">
+            <img src="~/images/profiles/@Model.Item2.ImageSource" alt="@Model.Item2.ImageAltText" />
+            <div class="text-box">
+                <p class="image-text">New</p>
+            </div>
+        </div>
+    </div>
+    <hr class="line"/>
+</section>
+
+@*Related Products*@
+<section class="related-products container">
+    <h2>Related Products</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach(var product in Model.Item1.Where(x => x.Tag == "RelatedProducts").Take(4))
+        {
+            <div class="col">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                            <img src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" class="card-img-top" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <div class="price-container">
+                            @if (product.DiscountPrice != 0)
+                            {
+                                <p class="card-price-line-through">$@product.Price</p>
+                                <p class="card-sale-price">$@product.DiscountPrice</p>
+                                <a asp-controller="" asp-action="" class="shopping-icon"><i class="fa-regular fa-cart-plus fa-lg"></i></a>
+                            }
+                            else
+                            {
+                                <p class="card-price">$@product.Price</p>
+                                <a asp-controller="" asp-action="" class="shopping-icon"><i class="fa-regular fa-cart-plus fa-lg"></i></a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+@*ProductCarousel*@
+<section class="product-carousel">
+    <div class="container">
+        <div id="carouselExampleControls2"
+             class="carousel slide"
+             data-bs-ride="carousel">
+            <div id="carousel-box2" class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        @foreach(var product in Model.Item1.Where(x => x.Tag == "Best Collection").Take(5))
+                        {
+                            <div class="col-md-2">
+                                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                                    <img class="carousel-image" src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" />
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        @foreach(var product in Model.Item1.Where(x => x.Tag == "CarouselFirst").Take(5))
+                        {
+                            <div class="col-md-2">
+                                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                                    <img class="carousel-image" src="~/images/profiles/@product.ImageSource" alt="@product.ImageAltText" />
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <button class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="prev">
+                    <i class="fa-sharp fa-regular fa-rectangle-vertical color black"
+                       data-bs-target="#carouselExampleControls2"
+                       data-bs-slide="prev">
+                   </i>
+                </button>
+                <button class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="next">
+                    <i class="fa-sharp fa-regular fa-rectangle-vertical"
+                       data-bs-target="#carouselExampleControls2"
+                       data-bs-slide="next">
+                   </i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<partial name="~/Views/Shared/Partials/_Footer.cshtml" />

@@ -1,4 +1,5 @@
-﻿using Bmarketo.Models.Forms;
+﻿using Bmarketo.Models.Entities;
+using Bmarketo.Models.Forms;
 using Bmarketo.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,16 @@ namespace Bmarketo.Controllers
             var products = await _productService.GetAllProductsAsync();
             return View(products);
         }
+
+        public async Task<IActionResult> ProductDetails(string id)
+        {
+            var product = await _productService.GetProductAsync(id);
+            var products = await _productService.GetAllProductsAsync();
+            var tuple = new Tuple<IEnumerable<ProductEntity>, ProductEntity>(products, product);
+
+            return View(tuple);
+        }
+
 
         [Authorize(Roles = "Admin, Project Manager")]
         public IActionResult CreateProducts(string ReturnUrl = null!)

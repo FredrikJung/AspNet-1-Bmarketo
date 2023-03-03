@@ -12,7 +12,7 @@
         <a class="menu-link" asp-controller="Contacts" asp-action="Index">CONTACT</a>
     </nav>
     <nav class="menulinkicons">
-        <a class="menu-link" asp-controller="Products" asp-action="Search"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <a class="menu-link" asp-controller="" asp-action=""><i class="fa-regular fa-magnifying-glass"></i></a>
 
         @if (User.Identity!.IsAuthenticated)
         {
@@ -24,7 +24,7 @@
         }
         
 
-        <a class="menu-link" asp-controller="Shopping" asp-action="Index">
+        <a class="menu-link" asp-controller="" asp-action="">
             <i class="fa-sharp fa-regular fa-rectangle-vertical"></i>
         </a>
         <span class="menu-badge">2</span>
