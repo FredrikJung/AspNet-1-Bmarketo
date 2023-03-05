@@ -93,7 +93,13 @@ namespace Bmarketo.Services
         {
             if(await _identityContext.Users.AnyAsync(x => x.Email == form.Email))
             {
+                if (form.KeepMeLoggedIn == true)
+                {
+                    keepMeLoggedIn = true;
+                }
+
                 var result = await _signInManager.PasswordSignInAsync(form.Email, form.Password, keepMeLoggedIn, false);
+
                 if(result.Succeeded)
                 {
                     return new OkResult();

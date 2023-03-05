@@ -978,6 +978,7 @@ a {
     .product-details .description-box {
         grid-area: description-box;
         display: flex;
+        justify-content: space-between;
         
     }
 

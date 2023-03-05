@@ -1,8 +1,12 @@
-﻿using Bmarketo.Models.Entities;
+﻿using Bmarketo.Contexts;
+using Bmarketo.Models.Entities;
 using Bmarketo.Models.Forms;
+using Bmarketo.Models.ViewModels.Product;
 using Bmarketo.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bmarketo.Controllers
 {
@@ -10,10 +14,12 @@ namespace Bmarketo.Controllers
     {
 
         private readonly ProductService _productService;
+        private readonly DataContext _context;
 
-        public ProductsController(ProductService productService)
+        public ProductsController(ProductService productService, DataContext context)
         {
             _productService = productService;
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
@@ -60,6 +66,56 @@ namespace Bmarketo.Controllers
             }
 
             return View(form);
+        }
+
+        [Authorize(Roles = "Admin, Project Manager")]
+        public async Task<IActionResult> EditProduct(string id)
+        {
+            var product = await _productService.GetProductDataAsync(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(ProductViewModel product)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _productService.UpdateProductAsync(product);
+                if (result is OkResult)
+                {
+                    return RedirectToAction("Index", "Products");
+                }
+
+                else if (result is BadRequestResult) 
+                {
+                    ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
+                }
+            }
+
+            return View(product);
+            
+        }
+
+        [Authorize(Roles = "Admin, Project Manager")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(string id)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(x => x.Id.ToString() == id);
+            
+
+            if (product == null)
+            {
+                ModelState.AddModelError(string.Empty, $"Product with Id: {id} cannot be found");
+                return RedirectToAction("Index", "Products");
+            }
+
+            else
+            {
+                var result =  _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Products");
+
+            }
         }
 
     }
