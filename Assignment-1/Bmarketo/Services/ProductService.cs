@@ -42,9 +42,15 @@ namespace Bmarketo.Services
 
                 };
 
+
                 if (form.ProductImage != null)
                 {
                     productEntity.ImageSource = await _userService.UploadProfileImageAsync(form.ProductImage);
+
+                }
+                else
+                {
+                    return new NoContentResult();
                 }
 
                 _context.Add(productEntity);

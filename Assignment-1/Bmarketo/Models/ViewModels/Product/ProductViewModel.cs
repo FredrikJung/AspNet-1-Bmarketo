@@ -16,7 +16,6 @@ namespace Bmarketo.Models.ViewModels.Product
         public decimal DiscountPrice { get; set; }
         [Required]
         public string Category { get; set; } = null!;
-        [Required]
         public IFormFile? ProductImage { get; set; }
         [Required]
         public string ImageAltText { get; set; } = null!;

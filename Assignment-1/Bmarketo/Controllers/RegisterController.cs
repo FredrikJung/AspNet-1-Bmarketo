@@ -25,24 +25,31 @@ namespace Bmarketo.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(RegisterFormModel form)
         {
-            if(ModelState.IsValid)
+            if(form.Terms != false)
             {
-                var result = await _authentication.RegisterAsync(form);
-                if (result is OkResult)
+                if (ModelState.IsValid)
                 {
-                    return LocalRedirect(form.ReturnUrl);
-                }
-                else if(result is ConflictResult)
-                {
-                    ModelState.AddModelError(string.Empty, "User with this email already exists");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
+                    var result = await _authentication.RegisterAsync(form);
+                    if (result is OkResult)
+                    {
+                        return LocalRedirect(form.ReturnUrl);
+                    }
+                    else if (result is ConflictResult)
+                    {
+                        ModelState.AddModelError(string.Empty, "User with this email already exists");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
+                    }
                 }
             }
-
-            return View(form);
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Please accept the terms and service to sign up!");
+            }
+        
+             return View(form);
         }
     }
 }

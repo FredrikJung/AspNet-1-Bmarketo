@@ -904,6 +904,8 @@ a {
     .product-details .buttons {
         grid-area: buttons;
         margin-top: 50px;
+        display:flex;
+        
     }
 
         .product-details .buttons #description {
@@ -911,8 +913,9 @@ a {
             color: #ffffff;
             text-decoration: none;
             border: none;
-            width: 290px;
+            width: 294px;
             height: 50px;
+            margin: 0px;
         }
 
             .product-details .buttons #description:active {
@@ -920,13 +923,15 @@ a {
                 color: #ffffff;
                 text-decoration: none;
                 border: none;
+                margin: 0px;
             }
 
         .product-details .buttons #additional {
-            width: 290px;
+            width: 294px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
+            margin: 0px;
         }
 
             .product-details .buttons #additional:active {
@@ -934,13 +939,15 @@ a {
                 color: #ffffff;
                 text-decoration: none;
                 border: none;
+                margin: 0px;
             }
 
         .product-details .buttons #review {
-            width: 290px;
+            width: 294px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
+            margin: 0px;
         }
 
             .product-details .buttons #review:active {
@@ -948,13 +955,15 @@ a {
                 color: #ffffff;
                 text-decoration: none;
                 border: none;
+                margin: 0px;
             }
 
         .product-details .buttons #shipping {
-            width: 290px;
+            width: 294px;
             height: 50px;
             background: #ffffff;
             border: 1px solid #bbbbbb;
+            margin: 0px;
         }
 
             .product-details .buttons #shipping:active {
@@ -962,6 +971,7 @@ a {
                 color: #ffffff;
                 text-decoration: none;
                 border: none;
+                margin: 0px;
             }
 
 
@@ -1803,6 +1813,8 @@ a {
 
     .product-form-section .container .product-form .product-submit-box {
         grid-area: product-submit-box;
+        display: flex;
+        justify-content: space-between
     }
 
         .product-form-section .container .product-form .product-submit-box .product-submit-btn {
@@ -1813,11 +1825,27 @@ a {
             height: 50px;
         }
 
-.myaccount {
-    min-height: 1110px;
-    margin-top: 80px;
-    margin-bottom: 160px;
-}
+        .product-form-section .container .product-form .product-submit-box .cancel {
+            border: none;
+            text-decoration: none;
+            background-color: #FA3150;
+            color: #ffffff;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+            .product-form-section .container .product-form .product-submit-box .cancel a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            .myaccount {
+                min-height: 1110px;
+                margin-top: 80px;
+                margin-bottom: 160px;
+            }
 
     .myaccount .container {
         max-width: 1138px;

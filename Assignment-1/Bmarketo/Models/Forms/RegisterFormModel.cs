@@ -38,5 +38,6 @@ namespace Bmarketo.Models.Forms
         public IFormFile? ProfileImage { get; set; }
         public string ReturnUrl { get; set; } = null!;
         public string UserRole { get; set; } = "User";
+        public bool Terms { get; set; } = false;
     }
 }

@@ -18,8 +18,7 @@ namespace Bmarketo.Models.Forms
         [Required]
         public string ImageAltText { get; set; } = null!;
         public string? Tag { get; set; }
-        [Required]
-        public IFormFile ProductImage { get; set; } = null!;
+        public IFormFile? ProductImage { get; set; }
         public string ReturnUrl { get; set; } = null!;
     }
 }

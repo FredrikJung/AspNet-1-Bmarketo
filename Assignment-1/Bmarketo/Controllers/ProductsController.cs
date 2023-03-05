@@ -38,7 +38,7 @@ namespace Bmarketo.Controllers
         }
 
 
-        [Authorize(Roles = "Admin, Project Manager")]
+        [Authorize(Roles = "Admin, Product Manager")]
         public IActionResult CreateProducts(string ReturnUrl = null!)
         {
             var form = new ProductFormModel { ReturnUrl = ReturnUrl ?? Url.Content("/") };
@@ -59,6 +59,10 @@ namespace Bmarketo.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Product with this name already exists");
                 }
+                else if(result is NoContentResult)
+                {
+                    ModelState.AddModelError(string.Empty, "A product needs an image. Add an image and try again!");
+                }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "An unexpected error occured. Please try again!");
@@ -68,7 +72,7 @@ namespace Bmarketo.Controllers
             return View(form);
         }
 
-        [Authorize(Roles = "Admin, Project Manager")]
+        [Authorize(Roles = "Admin, Product Manager")]
         public async Task<IActionResult> EditProduct(string id)
         {
             var product = await _productService.GetProductDataAsync(id);
@@ -96,7 +100,7 @@ namespace Bmarketo.Controllers
             
         }
 
-        [Authorize(Roles = "Admin, Project Manager")]
+        [Authorize(Roles = "Admin, Product Manager")]
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(string id)
         {
