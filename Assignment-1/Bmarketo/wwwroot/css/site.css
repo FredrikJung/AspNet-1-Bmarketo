@@ -908,7 +908,7 @@ a {
         
     }
 
-        .product-details .buttons #description {
+        .product-details .buttons .description {
             background-color: #FA3150;
             color: #ffffff;
             text-decoration: none;
@@ -918,7 +918,7 @@ a {
             margin: 0px;
         }
 
-            .product-details .buttons #description:active {
+            .product-details .buttons .description:active {
                 background-color: #FA3150;
                 color: #ffffff;
                 text-decoration: none;
@@ -926,7 +926,7 @@ a {
                 margin: 0px;
             }
 
-        .product-details .buttons #additional {
+        .product-details .buttons .additional {
             width: 294px;
             height: 50px;
             background: #ffffff;
@@ -934,7 +934,7 @@ a {
             margin: 0px;
         }
 
-            .product-details .buttons #additional:active {
+            .product-details .buttons .additional:active {
                 background-color: #FA3150;
                 color: #ffffff;
                 text-decoration: none;
@@ -942,7 +942,7 @@ a {
                 margin: 0px;
             }
 
-        .product-details .buttons #review {
+        .product-details .buttons .review {
             width: 294px;
             height: 50px;
             background: #ffffff;
@@ -950,7 +950,7 @@ a {
             margin: 0px;
         }
 
-            .product-details .buttons #review:active {
+            .product-details .buttons .review:active {
                 background-color: #FA3150;
                 color: #ffffff;
                 text-decoration: none;
@@ -958,7 +958,7 @@ a {
                 margin: 0px;
             }
 
-        .product-details .buttons #shipping {
+        .product-details .buttons .shipping {
             width: 294px;
             height: 50px;
             background: #ffffff;
@@ -966,7 +966,7 @@ a {
             margin: 0px;
         }
 
-            .product-details .buttons #shipping:active {
+            .product-details .buttons .shipping:active {
                 background-color: #FA3150;
                 color: #ffffff;
                 text-decoration: none;
